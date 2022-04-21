@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+/* import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import { btnReset, v } from "../../styles/variables";
@@ -185,3 +185,4 @@ export const SToggleThumb = styled.div`
     border-radius: 50%;
     background: ${({ theme }) => theme.bg};
 `;
+ */

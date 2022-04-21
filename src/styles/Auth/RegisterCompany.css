@@ -21,23 +21,23 @@
   border-radius: 3px;
 }
 
-.signup-formR {
+.signup-formC {
   width: 450px;
-  margin: 120px 170px;
+  margin: 0px 170px;
   padding: 0px 0;
   font-size: 17px;
   z-index:1222;
   
 }
-.signup-formR h2 {
+.signup-formC h2 {
   color: #636363;
-  margin: 10px 0 15px;
+  margin: 0px 0 0px;
   position: relative;
   text-align: center;
  
 }
-.signup-formR h2:before,
-.signup-formR h2:after {
+.signup-formC h2:before,
+.signup-formC h2:after {
   content: "";
   height: 1px;
   width: 10%;
@@ -46,55 +46,55 @@
   top: 50%;
   z-index: 2;
 }
-.signup-formR h2:before {
+.signup-formC h2:before {
   left: 0;
 }
-.signup-formR h2:after {
+.signup-formC h2:after {
   right: 0;
 }
-.signup-formR .hint-text {
+.signup-formC .hint-text {
   color: #999;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   text-align: center;
 }
-.signup-formR form {
+.signup-formC form {
   color: #999;
   border-radius: 6px;
-  margin-bottom: 15px;
+  margin-bottom: 0px;
   background: #ffffff;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   padding: 30px;
 }
-.signup-formR .form-group {
+.signup-formC .form-group {
   margin-bottom: 30px;
 }
-.signup-formR input[type="checkbox"] {
+.signup-formC input[type="checkbox"] {
   margin-top: 7px;
 }
-.signup-formR .btn {
-  font-size: 16px;
+.signup-formC .btn {
+  font-size: 14px;
   font-weight: bold;
   min-width: 140px;
   outline: none !important;
 }
-.signup-formR .row div:first-child {
+.signup-formC .row div:first-child {
   padding-right: 10px;
 }
-.signup-formR .row div:last-child {
+.signup-formC .row div:last-child {
   padding-left: 10px;
 }
 /* .signup-form a {
 	color: #fff;
 	text-decoration: underline;
 } */
-.signup-formR a:hover {
+.signup-formC a:hover {
   text-decoration: none;
 }
-.signup-formR form a {
+.signup-formC form a {
   color: #0077bf;
   text-decoration: none;
 }
-.signup-formR form a:hover {
+.signup-formC form a:hover {
   text-decoration: underline;
 }
 

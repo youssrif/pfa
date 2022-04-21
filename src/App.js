@@ -1,63 +1,71 @@
-import React, { useState,useEffect } from "react";
-import { Helmet } from "react-helmet";
-import { ThemeProvider } from "styled-components";
-import Layout from "./components/Layout/Layout";
+import React, { useState, useEffect } from "react";
+
 import Login from "./pages/Auth/Login";
 import { Route, Switch } from "react-router-dom";
-import { GlobalStyle } from "./styles/globalStyles";
-import { darkTheme, lightTheme } from "./styles/theme";
+import './app.css'
 import Routes from "./Routes";
+import Layout from "./components/Layout/Layout";
+import Calender from "./pages/home/Calender";
+import NavBar from "./components/Layout/NavBar";
 import { Redirect } from "react-router-dom";
 import Register from "./pages/Auth/Register"
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { Refresh_access } from './store/user/refresh/action'
+import Sidebar from "./components/Layout/Sidebar";
 export const ThemeContext = React.createContext(null);
-
 const App = () => {
-    const user=useSelector(state=>state?.LoginUser?.data?.accessToken)
-    const [theme, setTheme] = useState("light");
-    const themeStyle = theme === "light" ? lightTheme : darkTheme;
+    const dispatch = useDispatch()
+    const user = useSelector(state => state?.LoginUser?.data?.accessToken)
     const [isLogged, setIslogged] = useState(false)
-    console.log('suer sdqsd',user)
-    useEffect(()=>{
-     if(!!user)
-     {
-         setIslogged(true)
-     }
-    },[user])
+    console.log('suer sdqsd', user)
+    useEffect(() => {
+        if (!!user) {
+            setIslogged(true)
+        }
+        else {
+            setIslogged(false)
+        }
+    }, [user])
+    useEffect(() => {
+        dispatch(Refresh_access(user))
+    }, [])
+    console.log('login app', isLogged)
     return (
-        <ThemeContext.Provider value={{ setTheme, theme }}>
-            <ThemeProvider theme={themeStyle}>
-                <GlobalStyle />
-                <Helmet>
-                    <title>Sidebar - Code Focus</title>
-                    <link rel="preconnect" href="https://fonts.googleapis.com" />
-                    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-                    <link
-                        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
-                        rel="stylesheet"
-                    />
-                </Helmet>
-                {isLogged === false ?
-                    (
-                        <>
-                            <Switch>
-                                <Route exact path="/login">
-                                    <Login logged={setIslogged} />
-                                </Route>
-                                <Route exact path="/register">
-                                    <Register />
-                                </Route>
-                                <Redirect to="/login" />
-                            </Switch>
-                        </>
-                    ) : (<>
-                        <Layout>
-                            <Routes />
-                        </Layout>
-                    </>)}
-            </ThemeProvider>
-        </ThemeContext.Provider>
-
+        /*   <h1>APP</h1> */
+        /*   <div className="container-fluid App">
+              <div className="row"> <NavBar />  </div>
+              <div className="row ">
+                  <div className="col-md-2 " style={{ backgroundColor: '#021740' }}> <Sidebar /> </div>
+                  <div style={{ borderTopLeftRadius: '50px', backgroundColor: 'white', paddingLeft: '90px' }} className="col-md-10"
+                  >
+                      <div className="children-container" >
+                          <Calender />
+                      </div>
+                  </div>
+              </div>
+          </div> */
+        <div className="App" /* style={{ border: '1px solid red' }} */>
+            {isLogged === false ?
+                (
+                    <>
+                        <Switch>
+                            <Route exact path="/login">
+                                <Login logged={setIslogged} />
+                            </Route>
+                            <Route exact path="/register">
+                                <Register />
+                            </Route>
+                            <Redirect to="/login" />
+                        </Switch>
+                    </>
+                ) : (<>
+                    <Layout>
+                        <Routes />
+                    </Layout>
+                </>
+                )
+            }
+        </div >
     );
 };
 export default App;

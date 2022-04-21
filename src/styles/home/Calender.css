@@ -22,15 +22,26 @@
   cursor: pointer;
   float: left;
 } */
-li:hover {
+/* li:hover {
   background-color: rgb(255, 187, 187);
-}
+} */
 
-li:active {
+/* li:active {
   background-color: rgb(161, 170, 248);
   transition: all ease;
+} */
+.selectH {
+  border-radius: 20px;
+  /*  height: 40px !important;
+  width:10px !important; */
+  padding: 0px;
+  width: 100px;
+  align-items: center !important;
 }
-
+.opt {
+  size: 40px !important ;
+  right: 100px !important;
+}
 .right {
   padding: 20px;
   border-radius: 6px;
@@ -88,8 +99,8 @@ li:active {
 /* tr {
 } */
 th {
-  
   text-align: center;
+  align-items: center;
   padding: 60px;
   font-size: 20px;
   padding-top: 12px;
@@ -100,6 +111,16 @@ th {
 }
 td {
   text-align: center;
+  align-items: center;
   padding: 8px;
   border: 1px solid rgb(187, 186, 186);
+}
+.thead-invoice tr th {
+  border: none;
+}
+.tbody-invoice tr td {
+  border: none;
+}
+.calender-table {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }

@@ -1,4 +1,4 @@
-import { CALANDER_FAIL, CALANDER_REQUEST, CALANDER_SUCCESS } from './constant'
+import { CALANDER_FAIL, CALANDER_REQUEST, CALANDER_SUCCESS, ETAT_INVOICE_FAIL, ETAT_INVOICE_REQUEST, ETAT_INVOICE_SUCCESS } from './constant'
 import axios from 'axios'
 import { baseUrl } from '../../config/base'
 
@@ -20,4 +20,32 @@ export const Home = (data) => {
                 })
             })
     }
+}
+
+
+export const Upd_etat_invoice = (idinvoice, data, id = null) => {
+    const obj = {
+        etats: data
+    }
+    console.log('data is dgfffd', idinvoice, obj)
+    return (dispatch) => {
+
+        dispatch({ type: ETAT_INVOICE_REQUEST })
+        axios.put(`${baseUrl}/invoice/etats/upd/${idinvoice}`, obj)
+            .then(async (res) => {
+                dispatch({
+                    type: ETAT_INVOICE_SUCCESS,
+                    payload: res.data,
+                })
+                if (id !== null)
+                    await dispatch(Home(id))
+            })
+            .catch((err) => {
+                dispatch({
+                    type: ETAT_INVOICE_FAIL,
+                    payload: err,
+                })
+            })
+    }
+
 }
