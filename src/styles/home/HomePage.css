@@ -1,0 +1,40 @@
+.cadre-total {
+  background-color: #24d0ef;
+  color: white;
+  border-radius: 15px;
+  text-align: center;
+}
+.cadre-total * {
+  padding: 14px;
+  font-family: Arial;
+}
+/* .cadre-paye {
+  
+  color: white;
+  border-radius: 15px;
+  text-align: center;
+} */
+.cadre-paye * {
+  padding: 12px;
+  width: 220px;
+  font-family: Arial;
+}
+
+/* .cadre-nonpaye {
+  background-color: #ec6040;
+  color: rgb(255, 255, 255);
+  border-radius: 15px;
+  text-align: center;
+} */
+.cadre-nonpaye * {
+  padding: 12px;
+  width: 220px;
+  font-family: Arial;
+}
+.dashboar-flex-res {
+  font-size: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+}
